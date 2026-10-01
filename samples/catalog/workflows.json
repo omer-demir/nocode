@@ -1,0 +1,70 @@
+{
+  "workflows": [
+    {
+      "id": "review-repair",
+      "kind": "review-repair",
+      "identity": { "subject": "workflow://nocode/review-repair" },
+      "name": "Review Repair",
+      "description": "Runs a coding agent, an isolated reviewer, an approval gate, and a repair agent against the accepted findings.",
+      "version": "1.0.0",
+      "inputs": {
+        "repositoryUrl": {
+          "type": "string",
+          "description": "HTTPS Git repository URL to process in this workflow run.",
+          "required": true
+        },
+        "fresh": {
+          "type": "boolean",
+          "description": "Prepare fresh workflow workspaces before coding.",
+          "required": false,
+          "default": false
+        }
+      },
+      "configuration": {
+        "coderCaseId": "testcase-1",
+        "reviewerCaseId": "testcase-3",
+        "repairAgentId": "vue-migration-repairer"
+      }
+    },
+    {
+      "id": "vue-migration-developer-flow",
+      "kind": "sequential",
+      "identity": { "subject": "workflow://nocode/vue-migration-developer-flow" },
+      "name": "Vue Migration Developer Flow",
+      "description": "Runs the Vue migration coder, then hands its workspace to the review-first implementor for review, corrections, and final validation.",
+      "version": "1.0.0",
+      "inputs": {
+        "repositoryUrl": {
+          "type": "string",
+          "description": "HTTPS Git repository URL to process in this workflow run.",
+          "required": true
+        },
+        "fresh": {
+          "type": "boolean",
+          "description": "Prepare a fresh workflow workspace before the first step.",
+          "required": false,
+          "default": false
+        }
+      },
+      "configuration": {
+        "steps": [
+          {
+            "id": "implement",
+            "agentId": "vue-migration-coder",
+            "task": "Migrate the repository frontend to Vue 3 with Vite. Preserve backend behavior, add bounded validation, and prove the migration with build and test results.",
+            "workspace": { "source": "clone" }
+          },
+          {
+            "id": "review-and-improve",
+            "agentId": "vue-migration-reviewer-implementor",
+            "task": "Review the Vue migration produced by the previous step. Identify correctness defects, regressions, security concerns, and missing validation; implement the necessary corrections in the same workspace; then run build and test validation and summarize the final state.",
+            "workspace": {
+              "source": "step-output",
+              "stepId": "implement"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

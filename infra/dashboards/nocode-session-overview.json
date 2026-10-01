@@ -1,0 +1,1162 @@
+{
+  "dashboard": {
+    "annotations": {
+      "list": []
+    },
+    "editable": true,
+    "fiscalYearStartMonth": 0,
+    "graphTooltip": 1,
+    "id": null,
+    "links": [],
+    "panels": [
+      {
+        "datasource": {
+          "type": "grafana-azure-monitor-datasource",
+          "uid": "azure-monitor-oob"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
+              "axisLabel": "Sessions",
+              "axisPlacement": "auto",
+              "drawStyle": "line",
+              "fillOpacity": 12,
+              "lineInterpolation": "linear",
+              "lineWidth": 2,
+              "pointSize": 5,
+              "showPoints": "never",
+              "spanNulls": true,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              }
+            },
+            "min": 0
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 0
+        },
+        "id": 1,
+        "options": {
+          "legend": {
+            "calcs": ["lastNotNull", "max"],
+            "displayMode": "table",
+            "placement": "bottom",
+            "showLegend": true
+          },
+          "tooltip": {
+            "mode": "multi",
+            "sort": "desc"
+          }
+        },
+        "targets": [
+          {
+            "azureMonitor": {
+              "aggregation": "Average",
+              "alias": "Ready",
+              "dimensionFilters": [],
+              "metricName": "PoolReadyPodCount",
+              "metricNamespace": "Microsoft.App/sessionPools",
+              "region": "swedencentral",
+              "resourceGroup": "rg-nocode-session-dev",
+              "resourceName": "spnocodesessiondevv2",
+              "resources": [
+                {
+                  "region": "swedencentral",
+                  "resourceGroup": "rg-nocode-session-dev",
+                  "resourceName": "spnocodesessiondevv2",
+                  "subscription": "37258c92-a17f-432c-afaa-b896a7798736"
+                }
+              ],
+              "subscription": "37258c92-a17f-432c-afaa-b896a7798736",
+              "timeGrain": "auto"
+            },
+            "datasource": {
+              "type": "grafana-azure-monitor-datasource",
+              "uid": "azure-monitor-oob"
+            },
+            "queryType": "Azure Monitor",
+            "refId": "A",
+            "subscription": "37258c92-a17f-432c-afaa-b896a7798736"
+          },
+          {
+            "azureMonitor": {
+              "aggregation": "Average",
+              "alias": "Executing",
+              "dimensionFilters": [],
+              "metricName": "PoolExecutingPodCount",
+              "metricNamespace": "Microsoft.App/sessionPools",
+              "region": "swedencentral",
+              "resourceGroup": "rg-nocode-session-dev",
+              "resourceName": "spnocodesessiondevv2",
+              "resources": [
+                {
+                  "region": "swedencentral",
+                  "resourceGroup": "rg-nocode-session-dev",
+                  "resourceName": "spnocodesessiondevv2",
+                  "subscription": "37258c92-a17f-432c-afaa-b896a7798736"
+                }
+              ],
+              "subscription": "37258c92-a17f-432c-afaa-b896a7798736",
+              "timeGrain": "auto"
+            },
+            "datasource": {
+              "type": "grafana-azure-monitor-datasource",
+              "uid": "azure-monitor-oob"
+            },
+            "queryType": "Azure Monitor",
+            "refId": "B",
+            "subscription": "37258c92-a17f-432c-afaa-b896a7798736"
+          },
+          {
+            "azureMonitor": {
+              "aggregation": "Average",
+              "alias": "Creating",
+              "dimensionFilters": [],
+              "metricName": "PoolPendingPodCount",
+              "metricNamespace": "Microsoft.App/sessionPools",
+              "region": "swedencentral",
+              "resourceGroup": "rg-nocode-session-dev",
+              "resourceName": "spnocodesessiondevv2",
+              "resources": [
+                {
+                  "region": "swedencentral",
+                  "resourceGroup": "rg-nocode-session-dev",
+                  "resourceName": "spnocodesessiondevv2",
+                  "subscription": "37258c92-a17f-432c-afaa-b896a7798736"
+                }
+              ],
+              "subscription": "37258c92-a17f-432c-afaa-b896a7798736",
+              "timeGrain": "auto"
+            },
+            "datasource": {
+              "type": "grafana-azure-monitor-datasource",
+              "uid": "azure-monitor-oob"
+            },
+            "queryType": "Azure Monitor",
+            "refId": "C",
+            "subscription": "37258c92-a17f-432c-afaa-b896a7798736"
+          }
+        ],
+        "title": "Session Pool Capacity",
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "type": "grafana-azure-monitor-datasource",
+          "uid": "azure-monitor-oob"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
+              "axisLabel": "Events",
+              "axisPlacement": "auto",
+              "drawStyle": "bars",
+              "fillOpacity": 45,
+              "lineWidth": 1,
+              "showPoints": "never",
+              "stacking": {
+                "group": "A",
+                "mode": "normal"
+              }
+            },
+            "min": 0
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 0
+        },
+        "id": 2,
+        "options": {
+          "legend": {
+            "displayMode": "list",
+            "placement": "bottom",
+            "showLegend": true
+          },
+          "tooltip": {
+            "mode": "multi",
+            "sort": "desc"
+          }
+        },
+        "targets": [
+          {
+            "azureLogAnalytics": {
+              "dashboardTime": true,
+              "query": "AppMetrics\n| where Name in (\"nocode.runtime.events\", \"nocode.model.turns\", \"nocode.tool.invocations\")\n| summarize Events = sum(Sum) by bin(TimeGenerated, 1m), Name\n| order by TimeGenerated asc",
+              "resources": [
+                "/subscriptions/37258c92-a17f-432c-afaa-b896a7798736/resourceGroups/rg-nocode-session-dev/providers/Microsoft.OperationalInsights/workspaces/log-nocode-session-dev"
+              ],
+              "resultFormat": "time_series"
+            },
+            "datasource": {
+              "type": "grafana-azure-monitor-datasource",
+              "uid": "azure-monitor-oob"
+            },
+            "queryType": "Azure Log Analytics",
+            "refId": "A"
+          }
+        ],
+        "title": "Agent Runtime Metrics",
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "type": "grafana-azure-monitor-datasource",
+          "uid": "azure-monitor-oob"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
+              "axisLabel": "Spans",
+              "axisPlacement": "auto",
+              "drawStyle": "line",
+              "fillOpacity": 18,
+              "lineWidth": 2,
+              "showPoints": "never",
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              }
+            },
+            "min": 0
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 8
+        },
+        "id": 3,
+        "options": {
+          "legend": {
+            "displayMode": "table",
+            "placement": "bottom",
+            "showLegend": true
+          },
+          "tooltip": {
+            "mode": "multi",
+            "sort": "desc"
+          }
+        },
+        "targets": [
+          {
+            "azureLogAnalytics": {
+              "dashboardTime": true,
+              "query": "union AppRequests, AppDependencies\n| where Name in (\"agent.session\", \"model.invoke\", \"sandbox.create\", \"sandbox.execute\", \"sandbox.terminate\")\n| summarize Spans = count() by bin(TimeGenerated, 1m), Name\n| order by TimeGenerated asc",
+              "resources": [
+                "/subscriptions/37258c92-a17f-432c-afaa-b896a7798736/resourceGroups/rg-nocode-session-dev/providers/Microsoft.OperationalInsights/workspaces/log-nocode-session-dev"
+              ],
+              "resultFormat": "time_series"
+            },
+            "datasource": {
+              "type": "grafana-azure-monitor-datasource",
+              "uid": "azure-monitor-oob"
+            },
+            "queryType": "Azure Log Analytics",
+            "refId": "A"
+          }
+        ],
+        "title": "Agent Trace Activity",
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "type": "grafana-azure-monitor-datasource",
+          "uid": "azure-monitor-oob"
+        },
+        "fieldConfig": {
+          "defaults": {},
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 8
+        },
+        "id": 4,
+        "options": {
+          "cellHeight": "sm",
+          "showHeader": true
+        },
+        "targets": [
+          {
+            "azureLogAnalytics": {
+              "dashboardTime": true,
+              "query": "union isfuzzy=true AppEnvSessionConsoleLogs, AppEnvSessionLifecycleLogs, AppEnvSessionPoolEventLogs\n| order by TimeGenerated desc\n| take 100",
+              "resources": [
+                "/subscriptions/37258c92-a17f-432c-afaa-b896a7798736/resourceGroups/rg-nocode-session-dev/providers/Microsoft.OperationalInsights/workspaces/log-nocode-session-dev"
+              ],
+              "resultFormat": "table"
+            },
+            "datasource": {
+              "type": "grafana-azure-monitor-datasource",
+              "uid": "azure-monitor-oob"
+            },
+            "queryType": "Azure Log Analytics",
+            "refId": "A"
+          }
+        ],
+        "title": "Recent Session Logs",
+        "type": "table"
+      },
+      {
+        "datasource": {
+          "type": "grafana-azure-monitor-datasource",
+          "uid": "azure-monitor-oob"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
+              "axisLabel": "Tokens",
+              "axisPlacement": "auto",
+              "drawStyle": "bars",
+              "fillOpacity": 35,
+              "lineWidth": 1,
+              "showPoints": "never",
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              }
+            },
+            "min": 0
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 16
+        },
+        "id": 5,
+        "options": {
+          "legend": {
+            "calcs": ["sum"],
+            "displayMode": "table",
+            "placement": "bottom",
+            "showLegend": true
+          },
+          "tooltip": {
+            "mode": "multi",
+            "sort": "desc"
+          }
+        },
+        "targets": [
+          {
+            "azureLogAnalytics": {
+              "dashboardTime": true,
+              "query": "AppMetrics\n| where Name in (\"nocode.model.input_tokens\", \"nocode.model.output_tokens\", \"nocode.model.total_tokens\", \"nocode.model.cached_input_tokens\", \"nocode.model.reasoning_tokens\")\n| extend Model = tostring(Properties[\"model.name\"])\n| extend Series = strcat(Model, \" / \", Name)\n| summarize Tokens = sum(Sum) by bin(TimeGenerated, 1m), Series\n| order by TimeGenerated asc",
+              "resources": [
+                "/subscriptions/37258c92-a17f-432c-afaa-b896a7798736/resourceGroups/rg-nocode-session-dev/providers/Microsoft.OperationalInsights/workspaces/log-nocode-session-dev"
+              ],
+              "resultFormat": "time_series"
+            },
+            "datasource": {
+              "type": "grafana-azure-monitor-datasource",
+              "uid": "azure-monitor-oob"
+            },
+            "queryType": "Azure Log Analytics",
+            "refId": "A"
+          }
+        ],
+        "title": "Remote Foundry Token Usage",
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "type": "grafana-azure-monitor-datasource",
+          "uid": "azure-monitor-oob"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
+              "axisLabel": "Milliseconds",
+              "axisPlacement": "auto",
+              "drawStyle": "line",
+              "fillOpacity": 18,
+              "lineWidth": 2,
+              "showPoints": "never",
+              "spanNulls": true,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              }
+            },
+            "min": 0,
+            "unit": "ms"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 16
+        },
+        "id": 6,
+        "options": {
+          "legend": {
+            "calcs": ["mean", "max"],
+            "displayMode": "table",
+            "placement": "bottom",
+            "showLegend": true
+          },
+          "tooltip": {
+            "mode": "multi",
+            "sort": "desc"
+          }
+        },
+        "targets": [
+          {
+            "azureLogAnalytics": {
+              "dashboardTime": true,
+              "query": "AppMetrics\n| where Name == \"nocode.model.duration\"\n| extend Model = tostring(Properties[\"model.name\"])\n| summarize AverageDurationMs = sum(Sum) / sum(ItemCount) by bin(TimeGenerated, 1m), Model\n| order by TimeGenerated asc",
+              "resources": [
+                "/subscriptions/37258c92-a17f-432c-afaa-b896a7798736/resourceGroups/rg-nocode-session-dev/providers/Microsoft.OperationalInsights/workspaces/log-nocode-session-dev"
+              ],
+              "resultFormat": "time_series"
+            },
+            "datasource": {
+              "type": "grafana-azure-monitor-datasource",
+              "uid": "azure-monitor-oob"
+            },
+            "queryType": "Azure Log Analytics",
+            "refId": "A"
+          }
+        ],
+        "title": "Remote Foundry Model Latency",
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "type": "grafana-azure-monitor-datasource",
+          "uid": "azure-monitor-oob"
+        },
+        "description": "Privacy-safe aggregate measurements. Application Insights pre-aggregation provides average prompt size rather than a true median.",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "decimals": 1,
+            "noValue": "No data"
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "AveragePromptSize"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "Average Prompt Size"
+                },
+                {
+                  "id": "unit",
+                  "value": "locale"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "FixedOverheadPerCall"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "Fixed Overhead / Call"
+                },
+                {
+                  "id": "unit",
+                  "value": "bytes"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "ContextDilution"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "Context Dilution"
+                },
+                {
+                  "id": "unit",
+                  "value": "percent"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "PromptsPerSession"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "Prompts / Session"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "ContextGrowthPerPrompt"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "Context Growth / Prompt"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "ModelsInScope"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "Models In Scope"
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 24,
+          "x": 0,
+          "y": 24
+        },
+        "id": 7,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "horizontal",
+          "reduceOptions": {
+            "calcs": ["lastNotNull"],
+            "fields": "",
+            "values": false
+          },
+          "textMode": "auto",
+          "wideLayout": true
+        },
+        "targets": [
+          {
+            "azureLogAnalytics": {
+              "dashboardTime": true,
+              "query": "let M = AppMetrics; let Prompts = toscalar(M | where Name == \"nocode.prompts\" | summarize coalesce(sum(Sum), 0.0)); let Sessions = toscalar(M | where Name == \"nocode.runtime.events\" and tostring(Properties[\"event.type\"]) in (\"session.completed\", \"session.failed\") | summarize coalesce(sum(Sum), 0.0)); let PromptChars = toscalar(M | where Name == \"nocode.prompt.size_characters\" | summarize coalesce(sum(Sum), 0.0)); let PromptSamples = toscalar(M | where Name == \"nocode.prompt.size_characters\" | summarize coalesce(sum(ItemCount), 0)); let Turns = toscalar(M | where Name == \"nocode.model.turns\" | summarize coalesce(sum(Sum), 0.0)); let FixedBytes = toscalar(M | where Name == \"nocode.model.fixed_input_bytes\" | summarize coalesce(sum(Sum), 0.0)); let InputTokens = toscalar(M | where Name == \"nocode.model.input_tokens\" | summarize coalesce(sum(Sum), 0.0)); let RequestBytes = toscalar(M | where Name == \"nocode.model.request_bytes\" | summarize coalesce(sum(Sum), 0.0)); let UserChars = toscalar(M | where Name == \"nocode.model.user_input_characters\" | summarize coalesce(sum(Sum), 0.0)); let Models = toscalar(M | where Name == \"nocode.model.turns\" | extend Model=tostring(Properties[\"model.name\"]) | where isnotempty(Model) | summarize dcount(Model)); print PromptsPerSession=Prompts/max_of(Sessions,1.0), AveragePromptSize=PromptChars/max_of(todouble(PromptSamples),1.0), FixedOverheadPerCall=FixedBytes/max_of(Turns,1.0), ContextGrowthPerPrompt=InputTokens/max_of(Prompts,1.0), ContextDilution=100.0*UserChars/max_of(RequestBytes,1.0), ModelsInScope=Models",
+              "resources": [
+                "/subscriptions/37258c92-a17f-432c-afaa-b896a7798736/resourceGroups/rg-nocode-session-dev/providers/Microsoft.OperationalInsights/workspaces/log-nocode-session-dev"
+              ],
+              "resultFormat": "table"
+            },
+            "datasource": {
+              "type": "grafana-azure-monitor-datasource",
+              "uid": "azure-monitor-oob"
+            },
+            "queryType": "Azure Log Analytics",
+            "refId": "A"
+          }
+        ],
+        "title": "Prompt And Context KPIs",
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "grafana-azure-monitor-datasource",
+          "uid": "azure-monitor-oob"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "decimals": 2,
+            "noValue": "No data"
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "ToolErrorRate"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "Tool Error Rate"
+                },
+                {
+                  "id": "unit",
+                  "value": "percent"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "TopToolContextShare"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "Top Tool Context Share"
+                },
+                {
+                  "id": "unit",
+                  "value": "percent"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "CostPer1KTokens"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "Cost / 1K Tokens"
+                },
+                {
+                  "id": "unit",
+                  "value": "currencyUSD"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "ToolCallsPerSession"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "Tool Calls / Session"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "AutonomyRatio"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "Autonomy Ratio"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "InputOutputRatio"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "Input : Output Tokens"
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 24,
+          "x": 0,
+          "y": 32
+        },
+        "id": 8,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "horizontal",
+          "reduceOptions": {
+            "calcs": ["lastNotNull"],
+            "fields": "",
+            "values": false
+          },
+          "textMode": "auto",
+          "wideLayout": true
+        },
+        "targets": [
+          {
+            "azureLogAnalytics": {
+              "dashboardTime": true,
+              "query": "let M = AppMetrics; let Sessions = toscalar(M | where Name == \"nocode.runtime.events\" and tostring(Properties[\"event.type\"]) in (\"session.completed\", \"session.failed\") | summarize coalesce(sum(Sum), 0.0)); let Prompts = toscalar(M | where Name == \"nocode.prompts\" | summarize coalesce(sum(Sum), 0.0)); let ToolCalls = toscalar(M | where Name == \"nocode.tool.invocations\" | summarize coalesce(sum(Sum), 0.0)); let ToolErrors = toscalar(M | where Name == \"nocode.tool.invocations\" and tostring(Properties[\"success\"]) == \"false\" | summarize coalesce(sum(Sum), 0.0)); let TopToolBytes = toscalar(M | where Name == \"nocode.tool.output_bytes\" | extend Tool=tostring(Properties[\"tool.name\"]) | summarize Bytes=sum(Sum) by Tool | summarize coalesce(max(Bytes), 0.0)); let RequestBytes = toscalar(M | where Name == \"nocode.model.request_bytes\" | summarize coalesce(sum(Sum), 0.0)); let InputTokens = toscalar(M | where Name == \"nocode.model.input_tokens\" | summarize coalesce(sum(Sum), 0.0)); let OutputTokens = toscalar(M | where Name == \"nocode.model.output_tokens\" | summarize coalesce(sum(Sum), 0.0)); let TotalTokens = toscalar(M | where Name == \"nocode.model.total_tokens\" | summarize coalesce(sum(Sum), 0.0)); let Cost = toscalar(M | where Name == \"nocode.model.estimated_cost_usd\" | summarize coalesce(sum(Sum), 0.0)); print ToolCallsPerSession=ToolCalls/max_of(Sessions,1.0), ToolErrorRate=100.0*ToolErrors/max_of(ToolCalls,1.0), TopToolContextShare=100.0*TopToolBytes/max_of(RequestBytes,1.0), AutonomyRatio=ToolCalls/max_of(Prompts,1.0), InputOutputRatio=InputTokens/max_of(OutputTokens,1.0), CostPer1KTokens=1000.0*Cost/max_of(TotalTokens,1.0)",
+              "resources": [
+                "/subscriptions/37258c92-a17f-432c-afaa-b896a7798736/resourceGroups/rg-nocode-session-dev/providers/Microsoft.OperationalInsights/workspaces/log-nocode-session-dev"
+              ],
+              "resultFormat": "table"
+            },
+            "datasource": {
+              "type": "grafana-azure-monitor-datasource",
+              "uid": "azure-monitor-oob"
+            },
+            "queryType": "Azure Log Analytics",
+            "refId": "A"
+          }
+        ],
+        "title": "Tool And Agent KPIs",
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "grafana-azure-monitor-datasource",
+          "uid": "azure-monitor-oob"
+        },
+        "description": "Potential rogue-agent signals are hard policy denials, not a declaration that an identity is compromised.",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "decimals": 1,
+            "noValue": "0",
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                }
+              ]
+            }
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byRegexp",
+                "options": "/GuardrailHits|RateLimitHits|PotentialRogueSignals/"
+              },
+              "properties": [
+                {
+                  "id": "thresholds",
+                  "value": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": null
+                      },
+                      {
+                        "color": "red",
+                        "value": 1
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "FilesChanged"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "Files Changed"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "ReworkFactor"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "Rework Factor"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "CommandsExecuted"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "Commands Executed"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "GuardrailHits"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "Guardrail Hits"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "RateLimitHits"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "Rate Limit Hits"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "PotentialRogueSignals"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "Potential Rogue Signals"
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 24,
+          "x": 0,
+          "y": 40
+        },
+        "id": 9,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "horizontal",
+          "reduceOptions": {
+            "calcs": ["lastNotNull"],
+            "fields": "",
+            "values": false
+          },
+          "textMode": "auto",
+          "wideLayout": true
+        },
+        "targets": [
+          {
+            "azureLogAnalytics": {
+              "dashboardTime": true,
+              "query": "let M = AppMetrics; let Files = toscalar(M | where Name == \"nocode.repository.files_changed\" | summarize coalesce(sum(Sum), 0.0)); let Writes = toscalar(M | where Name == \"nocode.repository.write_operations\" | summarize coalesce(sum(Sum), 0.0)); let Commands = toscalar(M | where Name == \"nocode.commands.executed\" | summarize coalesce(sum(Sum), 0.0)); let Guardrails = toscalar(M | where Name == \"nocode.governance.guardrail_hits\" | summarize coalesce(sum(Sum), 0.0)); let RateLimits = toscalar(M | where Name == \"nocode.rate_limit_hits\" | summarize coalesce(sum(Sum), 0.0)); let RogueSignals = toscalar(M | where Name == \"nocode.security.detections\" | summarize coalesce(sum(Sum), 0.0)); print FilesChanged=Files, ReworkFactor=Writes/max_of(Files,1.0), CommandsExecuted=Commands, GuardrailHits=Guardrails, RateLimitHits=RateLimits, PotentialRogueSignals=RogueSignals",
+              "resources": [
+                "/subscriptions/37258c92-a17f-432c-afaa-b896a7798736/resourceGroups/rg-nocode-session-dev/providers/Microsoft.OperationalInsights/workspaces/log-nocode-session-dev"
+              ],
+              "resultFormat": "table"
+            },
+            "datasource": {
+              "type": "grafana-azure-monitor-datasource",
+              "uid": "azure-monitor-oob"
+            },
+            "queryType": "Azure Log Analytics",
+            "refId": "A"
+          }
+        ],
+        "title": "Repository And Governance Indicators",
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "grafana-azure-monitor-datasource",
+          "uid": "azure-monitor-oob"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
+              "axisLabel": "Decisions",
+              "axisPlacement": "auto",
+              "drawStyle": "bars",
+              "fillOpacity": 35,
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "showPoints": "never",
+              "spanNulls": true,
+              "stacking": {
+                "group": "A",
+                "mode": "normal"
+              }
+            },
+            "min": 0
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 24,
+          "x": 0,
+          "y": 48
+        },
+        "id": 10,
+        "options": {
+          "legend": {
+            "calcs": ["sum"],
+            "displayMode": "table",
+            "placement": "bottom",
+            "showLegend": true
+          },
+          "tooltip": {
+            "mode": "multi",
+            "sort": "desc"
+          }
+        },
+        "targets": [
+          {
+            "azureLogAnalytics": {
+              "dashboardTime": true,
+              "query": "AppMetrics | where Name == \"nocode.governance.policy_decisions\" | extend Outcome=tostring(Properties[\"outcome\"]), Rule=tostring(Properties[\"rule\"]) | extend Series=strcat(Outcome, \" / \", Rule) | summarize Decisions=sum(Sum) by bin(TimeGenerated, 1m), Series | order by TimeGenerated asc",
+              "resources": [
+                "/subscriptions/37258c92-a17f-432c-afaa-b896a7798736/resourceGroups/rg-nocode-session-dev/providers/Microsoft.OperationalInsights/workspaces/log-nocode-session-dev"
+              ],
+              "resultFormat": "time_series"
+            },
+            "datasource": {
+              "type": "grafana-azure-monitor-datasource",
+              "uid": "azure-monitor-oob"
+            },
+            "queryType": "Azure Log Analytics",
+            "refId": "A"
+          }
+        ],
+        "title": "Governance Decisions",
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "type": "grafana-azure-monitor-datasource",
+          "uid": "azure-monitor-oob"
+        },
+        "description": "NoCode policy, provider-native guardrail, rate-limit, and potential rogue-agent signals attributed to bounded logical agent identities.",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
+              "axisLabel": "Signals",
+              "axisPlacement": "auto",
+              "drawStyle": "bars",
+              "fillOpacity": 40,
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "showPoints": "never",
+              "spanNulls": true,
+              "stacking": {
+                "group": "A",
+                "mode": "normal"
+              }
+            },
+            "min": 0
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 24,
+          "x": 0,
+          "y": 56
+        },
+        "id": 11,
+        "options": {
+          "legend": {
+            "calcs": ["sum"],
+            "displayMode": "table",
+            "placement": "bottom",
+            "showLegend": true
+          },
+          "tooltip": {
+            "mode": "multi",
+            "sort": "desc"
+          }
+        },
+        "targets": [
+          {
+            "azureLogAnalytics": {
+              "dashboardTime": true,
+              "query": "AppMetrics | where Name in (\"nocode.governance.guardrail_hits\", \"nocode.model.guardrail_hits\", \"nocode.rate_limit_hits\", \"nocode.security.detections\") | extend Agent=coalesce(tostring(Properties[\"agent.id\"]), \"platform\"), Signal=coalesce(tostring(Properties[\"signal\"]), tostring(Properties[\"reason\"]), tostring(Properties[\"category\"]), tostring(Properties[\"source\"]), \"event\") | extend Series=strcat(Agent, \" / \", Signal) | summarize Hits=sum(Sum) by bin(TimeGenerated, 1m), Series | order by TimeGenerated asc",
+              "resources": [
+                "/subscriptions/37258c92-a17f-432c-afaa-b896a7798736/resourceGroups/rg-nocode-session-dev/providers/Microsoft.OperationalInsights/workspaces/log-nocode-session-dev"
+              ],
+              "resultFormat": "time_series"
+            },
+            "datasource": {
+              "type": "grafana-azure-monitor-datasource",
+              "uid": "azure-monitor-oob"
+            },
+            "queryType": "Azure Log Analytics",
+            "refId": "A"
+          }
+        ],
+        "title": "Security Signals By Agent",
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "type": "grafana-azure-monitor-datasource",
+          "uid": "azure-monitor-oob"
+        },
+        "description": "Correlates application-classified Azure Foundry content-filter hits with platform RequestResponse HTTP 400 diagnostics. Platform diagnostics do not expose the filter category, so the application series provides the guardrail classification.",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
+              "axisLabel": "Hits",
+              "axisPlacement": "auto",
+              "drawStyle": "bars",
+              "fillOpacity": 35,
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "showPoints": "never",
+              "spanNulls": true,
+              "stacking": {
+                "group": "A",
+                "mode": "normal"
+              }
+            },
+            "min": 0
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 24,
+          "x": 0,
+          "y": 64
+        },
+        "id": 12,
+        "options": {
+          "legend": {
+            "calcs": ["sum"],
+            "displayMode": "table",
+            "placement": "bottom",
+            "showLegend": true
+          },
+          "tooltip": {
+            "mode": "multi",
+            "sort": "desc"
+          }
+        },
+        "targets": [
+          {
+            "azureLogAnalytics": {
+              "dashboardTime": true,
+              "query": "AppMetrics | where Name == \"nocode.model.guardrail_hits\" | extend Source=tostring(Properties[\"source\"]), Category=tostring(Properties[\"category\"]), Model=tostring(Properties[\"model.name\"]) | extend Series=strcat(\"App classified / \", Source, \" / \", Category, \" / \", Model) | summarize Hits=sum(Sum) by bin(TimeGenerated, 1m), Series | order by TimeGenerated asc",
+              "resources": [
+                "/subscriptions/37258c92-a17f-432c-afaa-b896a7798736/resourceGroups/rg-nocode-session-dev/providers/Microsoft.OperationalInsights/workspaces/log-nocode-session-dev"
+              ],
+              "resultFormat": "time_series"
+            },
+            "datasource": {
+              "type": "grafana-azure-monitor-datasource",
+              "uid": "azure-monitor-oob"
+            },
+            "queryType": "Azure Log Analytics",
+            "refId": "A"
+          },
+          {
+            "azureLogAnalytics": {
+              "dashboardTime": true,
+              "query": "AzureDiagnostics | where ResourceId =~ \"/subscriptions/37258c92-a17f-432c-afaa-b896a7798736/resourceGroups/rg-multi-agent-qa/providers/Microsoft.CognitiveServices/accounts/omerdemir-9440-resource\" | where Category == \"RequestResponse\" and OperationName == \"create-response\" and ResultSignature == \"400\" | extend Series=\"Foundry platform HTTP 400\" | summarize Hits=count() by bin(TimeGenerated, 1m), Series | order by TimeGenerated asc",
+              "resources": [
+                "/subscriptions/37258c92-a17f-432c-afaa-b896a7798736/resourceGroups/rg-nocode-session-dev/providers/Microsoft.OperationalInsights/workspaces/log-nocode-session-dev"
+              ],
+              "resultFormat": "time_series"
+            },
+            "datasource": {
+              "type": "grafana-azure-monitor-datasource",
+              "uid": "azure-monitor-oob"
+            },
+            "queryType": "Azure Log Analytics",
+            "refId": "B"
+          }
+        ],
+        "title": "Azure Foundry Native Guardrail Correlation",
+        "type": "timeseries"
+      }
+    ],
+    "refresh": "30s",
+    "schemaVersion": 41,
+    "tags": ["nocode-agent", "azure-container-apps", "opentelemetry"],
+    "templating": {
+      "list": []
+    },
+    "time": {
+      "from": "now-1h",
+      "to": "now"
+    },
+    "timezone": "browser",
+    "title": "NoCode Agent Sessions",
+    "uid": "nocode-agent-sessions",
+    "version": 7
+  },
+  "message": "Provisioned by the NoCode agent Azure deployment",
+  "overwrite": true
+}

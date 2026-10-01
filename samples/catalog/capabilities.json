@@ -1,0 +1,40 @@
+{
+  "capabilities": [
+    {
+      "id": "repository.read",
+      "description": "Read and search repository content and inspect Git changes"
+    },
+    {
+      "id": "workspace.write",
+      "description": "Create and replace files in the isolated workspace"
+    },
+    {
+      "id": "network.internet",
+      "description": "Use outbound internet access from the sandbox"
+    },
+    {
+      "id": "packages.install",
+      "description": "Install language packages into the isolated workspace"
+    },
+    {
+      "id": "tests.run",
+      "description": "Run the repository test command for the agent runtime"
+    },
+    {
+      "id": "build.run",
+      "description": "Run the repository build command for the agent runtime"
+    },
+    {
+      "id": "review.create",
+      "description": "Produce a code review summary without repository mutation"
+    },
+    {
+      "id": "security.canary.invoke",
+      "description": "Attempt the synthetic security canary used to validate policy detection telemetry"
+    },
+    {
+      "id": "security.escape-test.invoke",
+      "description": "Request the non-executing host-boundary escape test used to validate fail-closed security telemetry"
+    }
+  ]
+}

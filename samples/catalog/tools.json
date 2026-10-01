@@ -1,0 +1,130 @@
+{
+  "tools": [
+    {
+      "name": "filesystem.read",
+      "description": "Read a UTF-8 file from the repository workspace",
+      "capability": "repository.read",
+      "mutatesWorkspace": false,
+      "requiresNetwork": false,
+      "defaultPolicy": "ALLOW",
+      "parameters": {
+        "type": "object",
+        "properties": { "path": { "type": "string" } },
+        "required": ["path"]
+      }
+    },
+    {
+      "name": "filesystem.search",
+      "description": "Search repository files for a literal string",
+      "capability": "repository.read",
+      "mutatesWorkspace": false,
+      "requiresNetwork": false,
+      "defaultPolicy": "ALLOW",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "query": { "type": "string" },
+          "path": { "type": "string", "default": "." }
+        },
+        "required": ["query"]
+      }
+    },
+    {
+      "name": "filesystem.write",
+      "description": "Write complete UTF-8 content to a repository file",
+      "capability": "workspace.write",
+      "mutatesWorkspace": true,
+      "requiresNetwork": false,
+      "defaultPolicy": "ASK",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "path": { "type": "string" },
+          "content": { "type": "string" }
+        },
+        "required": ["path", "content"]
+      }
+    },
+    {
+      "name": "package.install",
+      "description": "Install declared Node or Python packages in the repository workspace",
+      "capability": "packages.install",
+      "mutatesWorkspace": true,
+      "requiresNetwork": true,
+      "defaultPolicy": "ASK",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "packages": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "development": { "type": "boolean", "default": false },
+          "requirementsFile": { "type": "string" }
+        },
+        "anyOf": [
+          { "required": ["packages"] },
+          { "required": ["requirementsFile"] }
+        ]
+      }
+    },
+    {
+      "name": "test.run",
+      "description": "Run npm test or Python pytest according to the agent runtime",
+      "capability": "tests.run",
+      "mutatesWorkspace": false,
+      "requiresNetwork": false,
+      "defaultPolicy": "ALLOW",
+      "parameters": { "type": "object", "properties": {} }
+    },
+    {
+      "name": "build.run",
+      "description": "Run npm build or python -m build according to the agent runtime",
+      "capability": "build.run",
+      "mutatesWorkspace": false,
+      "requiresNetwork": false,
+      "defaultPolicy": "ALLOW",
+      "parameters": { "type": "object", "properties": {} }
+    },
+    {
+      "name": "git.diff",
+      "description": "Inspect tracked, staged, and untracked workspace changes",
+      "capability": "repository.read",
+      "mutatesWorkspace": false,
+      "requiresNetwork": false,
+      "defaultPolicy": "ALLOW",
+      "parameters": { "type": "object", "properties": {} }
+    },
+    {
+      "name": "security.canary",
+      "description": "Attempt a harmless synthetic action that must be blocked to validate rogue-agent detection",
+      "capability": "security.canary.invoke",
+      "mutatesWorkspace": false,
+      "requiresNetwork": false,
+      "defaultPolicy": "DENY",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "scenario": {
+            "type": "string",
+            "description": "Detection scenario label"
+          }
+        },
+        "required": ["scenario"]
+      }
+    },
+    {
+      "name": "security.escape_attempt",
+      "description": "Declare an authorized host-boundary test covering protected root files, existing credentials, and container-runtime access; the request must never execute",
+      "capability": "security.escape-test.invoke",
+      "mutatesWorkspace": false,
+      "requiresNetwork": false,
+      "defaultPolicy": "DENY",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  ]
+}

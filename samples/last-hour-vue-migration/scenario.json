@@ -1,0 +1,38 @@
+{
+  "id": "last-hour-vue-migration",
+  "name": "LastHour Vue Migration",
+  "description": "Compare implementation and review-oriented agents on a Vue 3 migration, then review the coding output offline and read-only.",
+  "repository": {
+    "url": "https://github.com/omer-demir/LastHour.git",
+    "ref": "master"
+  },
+  "testCases": [
+    {
+      "id": "testcase-1",
+      "name": "Coding agent with internet",
+      "description": "Clone LastHour and let a coding agent implement the Vue migration with outbound package access.",
+      "agentId": "vue-migration-coder",
+      "task": "Migrate LastHour's absent legacy frontend to a Vue 3 application built with Vite. Preserve the Express and Mongoose backend, add development and production scripts, add bounded automated validation, and prove the migration with build and test results.",
+      "workspace": { "source": "clone" }
+    },
+    {
+      "id": "testcase-2",
+      "name": "Review agent implementing with internet",
+      "description": "Clone LastHour independently and let a review-first agent assess and implement the same Vue migration.",
+      "agentId": "vue-migration-reviewer-implementor",
+      "task": "Review LastHour's architecture and then implement a Vue 3 and Vite migration. Preserve backend behavior, address migration risks you identify, add bounded validation, and report both review findings and implementation evidence.",
+      "workspace": { "source": "clone" }
+    },
+    {
+      "id": "testcase-3",
+      "name": "Offline read-only review of testcase 1",
+      "description": "Mount testcase 1 output read-only and review it without outbound network access.",
+      "agentId": "offline-code-reviewer",
+      "task": "Review the Vue migration produced by testcase-1. Identify correctness defects, regressions, security concerns, missing tests, and incomplete migration behavior. Do not modify the workspace.",
+      "workspace": {
+        "source": "test-case-output",
+        "testCaseId": "testcase-1"
+      }
+    }
+  ]
+}

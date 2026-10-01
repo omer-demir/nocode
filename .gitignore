@@ -1,0 +1,21 @@
+dist/
+node_modules/
+.env
+.agent-workspaces/
+coverage/
+.DS_Store
+
+braindump.md
+
+# Azure
+.azure/
+
+# Copilot
+.copilot-tracking/
+.context/
+
+# Docs
+docs/decisions/
+docs/design/
+docs/drawings/
+docs/presentations/
